@@ -86,4 +86,4 @@ try {
 
 ## License
 
-[MIT](blob/main/LICENSE)
+[MIT](https://github.com/benzaria/quick-ms/blob/main/blob/main/LICENSE)
