@@ -45,7 +45,7 @@ If a number is passed, the function returns it as-is, but logs a warning:
 console.log(tms(5000));   // 5000 (Warning: The input was a number, no need for converting)
 ```
 
-> [!NOTE] NOTE
+> [!NOTE]
 > **For now** `to-ms` Does Not convert numbers back to human-readable time strings. for that use [ms](https://github.com/vercel/ms).  
 > **It will be included in future updates**
 
