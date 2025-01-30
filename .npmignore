@@ -4,4 +4,6 @@ tsconfig*
 tsup*
 eslint*
 
-/imgs/
+imgs/
+.history/
+.vscode/
