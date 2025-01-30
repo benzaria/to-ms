@@ -1,0 +1,47 @@
+{
+  "name": "@benzn/to-ms",
+  "version": "1.0.0",
+  "description": "Converts a time string with units to milliseconds",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "scripts": {
+    "test": "mocha",
+    "prebuild": "npm run type-check && npm run eslint-check",
+    "build": "tsup",
+    "compile": "tsc",
+    "build:skip": "tsup",
+    "type-check": "tsc --noEmit",
+    "eslint-check": "eslint ./src/**/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benzaria/to-ms.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "ms",
+    "milliseconds",
+    "time",
+    "simple",
+    "fast"
+  ],
+  "author": "benzaria",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benzaria/to-ms/issues"
+  },
+  "homepage": "https://github.com/benzaria/to-ms#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "mocha": "^11.1.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.21.0"
+  }
+}
