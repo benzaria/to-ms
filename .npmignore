@@ -1,2 +1,7 @@
 node*
 *lock*
+tsconfig*
+tsup*
+eslint*
+
+/imgs/
