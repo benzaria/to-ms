@@ -59,18 +59,18 @@ npm test
   <summary>Test results compared to 'ms'</summary>
 
 tms: 122ms, 246ms  
-ms : 227ms, 505ms
+ms : 227ms, 505ms  
 ![test1](./imgs/test1.png)
 
   <details>
     <summary>More?</summary>
 
 tms: 122ms, 246ms  
-ms : 227ms, 505ms
+ms : 227ms, 505ms  
 ![test2](./imgs/test2.png)
 
 tms: 122ms, 246ms  
-ms : 227ms, 505ms
+ms : 227ms, 505ms  
 ![test3](./imgs/test3.png)
 
   </details>
