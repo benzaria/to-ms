@@ -1,8 +1,9 @@
 node*
 *lock*
-tsconfig*
+*config*
 tsup*
 eslint*
+.mocha*
 
 imgs/
 .history/
