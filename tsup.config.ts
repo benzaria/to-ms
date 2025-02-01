@@ -2,12 +2,10 @@ import { defineConfig } from 'tsup';
 
 export default defineConfig({
     entry: ['src/index.ts'],
-    platform: 'neutral',
-    target: ['esnext'],
     format: ['esm'],
-    bundle: true,
     splitting: false,
     sourcemap: false,
+    bundle: true,
     clean: true,
     dts: false,
     minify: false,

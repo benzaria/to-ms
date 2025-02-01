@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "ESNext",
+        "module": "NodeNext",
         "outDir": "./out",
-        "moduleResolution": "node",
+        "moduleResolution": "nodenext",
         "moduleDetection": "force",
         "strict": true,
         "allowJs": true,
