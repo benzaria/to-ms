@@ -13,7 +13,6 @@
   },
   "scripts": {
     "test": "mocha",
-    "prepublishOnly": "eslint ./dist/",
     "prebuild": "npm run type-check && npm run lint-check",
     "build": "npm run build:skip-check",
     "build:skip-check": "npm run build:cjs && npm run build:esm && npm run build:dts",
