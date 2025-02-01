@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import tms from '../dist/index.js';
+import tms from '../dist/esm/index.js';
 import ms from 'ms'
 import { strictEqual, throws } from 'assert';
 import { describe, it } from 'mocha';
@@ -72,7 +72,7 @@ describe('tms function tests', () => {
         const durationMs = Date.now() - startMs;
 
         const startTms = Date.now();
-        for (let i = 0; i < 600_000; i++) {
+        for (let i = 0; i < globalThis.iterations; i++) {
             tms('1h');
         }
         const durationTms = Date.now() - startTms;
@@ -93,7 +93,7 @@ describe('tms function tests', () => {
         const durationMs = Date.now() - startMs;
 
         const startTms = Date.now();
-        for (let i = 0; i < 600_000; i++) {
+        for (let i = 0; i < globalThis.iterations; i++) {
             tms(`${i}h`);
         }
         const durationTms = Date.now() - startTms;

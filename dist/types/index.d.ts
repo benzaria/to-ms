@@ -3,9 +3,6 @@ type msUnits = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'M' | 'y';
  * A type representing the input parameter type for the `tms` function.
  */
 type msInput = Parameters<typeof tms>[0];
-// | `${number}` | number
-// | `${number}${msUnits}`
-
 /**
  * A record mapping time units to their corresponding millisecond values.
  */
