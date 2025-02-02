@@ -2,7 +2,10 @@
 
 ## Overview
 
-`to-ms` is a lightweight TypeScript utility that converts human-readable time strings (e.g., `"5s"`, `"2.6 h"`) into milliseconds. It supports multiple time units, making it easy to work with time-based calculations.
+`to-ms` is a lightweight TypeScript utility that converts human-readable time strings (e.g., `"5s"`, `"2.6 h"`) into milliseconds.  
+It supports multiple time units, making it easy to work with time-based calculations.  
+
+**Why use it ?** : because its faster that `ms` by **40%**. [Tests?](#tests)
 
 ## Installation
 
@@ -20,11 +23,18 @@ yarn add @benzn/to-ms
 
 ## Usage
 
-### Importing
+### Import
 
 ```typescript
 import tms from "@benzn/to-ms";
 ```
+
+### Require
+
+```typescript
+const tms = require("@benzn/to-ms")
+```
+
 
 ### Converting Time Strings to Milliseconds
 
@@ -51,9 +61,7 @@ console.log(tms(5000));   // 5000 (Warning: The input was a number, no need for 
 
 ## Tests
 
-```bash
-npm test
-```
+To test it run `npm test`,or `npx mocha`
 
 <details>
   <summary>Test results compared to 'ms'</summary>

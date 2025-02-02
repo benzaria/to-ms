@@ -5,6 +5,9 @@ tsup*
 eslint*
 .mocha*
 
+__*
+\!*
+
 imgs/
 .history/
 .vscode/
