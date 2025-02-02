@@ -10,6 +10,5 @@ export default defineConfig({
     dts: false,
     minify: false,
     minifySyntax: true,
-    // outExtension: ({ format }) => ({ js: format === 'cjs' ? '.cjs' : '.mjs', dts: '.d.ts' }),
-    outExtension: () => ({ js: '.js', dts: '.d.ts' }),
+    outExtension: ({ format }) => ({ js: format === 'cjs' ? '.cjs' : '.mjs', dts: '.d.ts' }),
 });

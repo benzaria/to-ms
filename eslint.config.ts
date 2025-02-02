@@ -1,47 +1,43 @@
+import { Linter } from 'eslint'
 import globals from 'globals';
 import jsPlugin from '@eslint/js';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+//** @type {import('eslint').Linter.FlatConfig[]} */
 export default [
-  // Base settings for all JavaScript and TypeScript files
   {
-    files: ['**/*.{js,mjs,cjs,ts}'], // Target file extensions
+    files: ['**/*.{js,mjs,cjs,ts}'], 
     languageOptions: {
-      globals: globals['shared-node-browser'], // Shared global variables for both Node.js and browsers
-      ecmaVersion: 'latest', // Latest ECMAScript version
-      sourceType: 'module', // ES Modules
-      parser: tsParser, // Use TypeScript parser for linting TS files
+      globals: globals['shared-node-browser'], 
+      ecmaVersion: 'latest', 
+      sourceType: 'module', 
+      parser: tsParser, 
     },
     rules: {
-      'no-unused-vars': 'warn', // Warn for unused variables
-      'no-console': 'warn', // Allow console statements
-      //'semi': ['error', 'always'], // Enforce semicolons
-      //"quotes": ["error", "double"], // Enforce double quotes
+      'no-unused-vars': 'warn', 
+      'no-console': 'warn', 
+      //'semi': ['error', 'always'], 
+      //"quotes": ["error", "double"], 
     },
   },
-
-  // Add JavaScript-specific rules
   {
     files: ['**/*.js'],
-    ...jsPlugin.configs.recommended, // Recommended rules for JavaScript
+    ...jsPlugin.configs.recommended, 
     rules: {
       ...jsPlugin.configs.recommended.rules,
-      'strict': ['error', 'never'], // Disable strict mode in JS files
+      'strict': ['error', 'never'], 
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }]
     },
   },
-
-  // Add TypeScript-specific rules
   {
     files: ['**/*.ts'],
     plugins: { '@typescript-eslint': tsPlugin },
     rules: {
-      ...tsPlugin.configs.recommended.rules, // Recommended rules for TypeScript
-      '@typescript-eslint/no-explicit-any': 'off', // Allow the use of 'any' type
-      '@typescript-eslint/explicit-module-boundary-types': 'warn', // Don't require return types for functions
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], // Ignore unused variables starting with '_'
+      ...tsPlugin.configs.recommended.rules, 
+      '@typescript-eslint/no-explicit-any': 'off', 
+      '@typescript-eslint/explicit-module-boundary-types': 'warn', 
+      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }], 
     },
   },
-];
+] as Linter.Config
