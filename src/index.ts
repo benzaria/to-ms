@@ -42,13 +42,13 @@ export default function tms(input: //? for IntelliSens
     | `${number}`
     | number,
     catchError: boolean = false
-): number | void {
+): number | undefined {
     if (typeof input === "string") {
         const match = input.match(/^\s*([-+]?\s*\d*\.?\d+)\s*(ms|[smhdwMy]?)\s*$/)
         if (!match) {
             const formatError = 'Invalid time format, support:' + JSON.stringify(Object.keys(msVal))
             if (!catchError) throw new Error(formatError)
-            return console.error(formatError)
+            return console.error(formatError), undefined
         }
         return +match[1] * (msVal[match[2] as msUnits] ?? 1)
     }
@@ -57,5 +57,5 @@ export default function tms(input: //? for IntelliSens
 
     const typeError = `Input must be a string or number. Received: ${input}, with typeof ${typeof input}`
     if (!catchError) throw new TypeError(typeError)
-    return console.error(typeError)
+    return console.error(typeError), undefined
 }

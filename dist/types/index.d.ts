@@ -22,6 +22,6 @@ declare const msVal: Record<msUnits, number>;
  * @throws {Error} If the input string is in an invalid format.
  * @throws {TypeError} If the input is not a string.
  */
-declare function tms(input: `${number}s` | `${number}m` | `${number}h` | `${number}d` | `${number}w` | `${number}M` | `${number}y` | `${number}ms` | `${number}` | number, catchError?: boolean): number | void;
+declare function tms(input: `${number}s` | `${number}m` | `${number}h` | `${number}d` | `${number}w` | `${number}M` | `${number}y` | `${number}ms` | `${number}` | number, catchError?: boolean): number | undefined;
 
 export { tms as default, type msInput, type msUnits, msVal };
