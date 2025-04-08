@@ -1,6 +1,6 @@
 {
   "name": "@benzn/to-ms",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "Converts a time string with units to milliseconds",
   "types": "./dist/types/index.d.ts",
   "module": "./dist/esm/index.mjs",
