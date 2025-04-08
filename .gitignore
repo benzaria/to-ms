@@ -1,7 +1,7 @@
 node*
 *lock*
 .npm*
-dist
+# dist/
 
 __*
 \!*
