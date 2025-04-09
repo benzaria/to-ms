@@ -42,20 +42,21 @@ export default function tms(input: //? for IntelliSens
     | `${number}`
     | number,
     catchError: boolean = false
-): number | undefined {
+): number {
     if (typeof input === "string") {
         const match = input.match(/^\s*([-+]?\s*\d*\.?\d+)\s*(ms|[smhdwMy]?)\s*$/)
         if (!match) {
             const formatError = 'Invalid time format, support:' + JSON.stringify(Object.keys(msVal))
             if (!catchError) throw new Error(formatError)
-            return console.error(formatError), undefined
+            return console.error(formatError), 0
         }
         return +match[1] * (msVal[match[2] as msUnits] ?? 1)
     }
-    else if (typeof input === 'number')
+
+    if (typeof input === 'number')
         return console.warn(`The Input was a number, no need for converting`), input
 
     const typeError = `Input must be a string or number. Received: ${input}, with typeof ${typeof input}`
     if (!catchError) throw new TypeError(typeError)
-    return console.error(typeError), undefined
+    return console.error(typeError), 0
 }

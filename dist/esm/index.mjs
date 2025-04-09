@@ -6,14 +6,15 @@ function tms(input, catchError = !1) {
     if (!match) {
       let formatError = "Invalid time format, support:" + JSON.stringify(Object.keys(msVal));
       if (!catchError) throw new Error(formatError);
-      return console.error(formatError), void 0;
+      return console.error(formatError), 0;
     }
     return +match[1] * (msVal[match[2]] ?? 1);
-  } else if (typeof input == "number")
+  }
+  if (typeof input == "number")
     return console.warn("The Input was a number, no need for converting"), input;
   let typeError = `Input must be a string or number. Received: ${input}, with typeof ${typeof input}`;
   if (!catchError) throw new TypeError(typeError);
-  return console.error(typeError), void 0;
+  return console.error(typeError), 0;
 }
 export {
   tms as default,
