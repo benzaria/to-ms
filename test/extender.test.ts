@@ -1,65 +1,51 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable no-console */
-import tms from '@benzn/to-ms';
+import '@benzn/to-ms/extender'
 import ms from 'ms'
-import { strictEqual, throws } from 'assert';
+import { strictEqual } from 'assert';
 import { describe, it } from 'mocha';
 
 globalThis.iterations = 1_000_000;
 
-describe('tms function tests', () => {
+describe('extender function tests', () => {
     it('should convert seconds to milliseconds', () => {
-        strictEqual(tms('1s'), 1000);
-        strictEqual(tms('2s'), 2000);
+        strictEqual('1'.s, 1000);
+        strictEqual('2'.s, 2000);
     });
 
     it('should convert minutes to milliseconds', () => {
-        strictEqual(tms('1m'), 60000);
-        strictEqual(tms('2m'), 120000);
+        strictEqual('1'.m, 60000);
+        strictEqual('2'.m, 120000);
     });
 
     it('should convert hours to milliseconds', () => {
-        strictEqual(tms('1h'), 3600000);
-        strictEqual(tms('2h'), 7200000);
+        strictEqual('1'.h, 3600000);
+        strictEqual('2'.h, 7200000);
     });
 
     it('should convert days to milliseconds', () => {
-        strictEqual(tms('1d'), 86400000);
-        strictEqual(tms('2d'), 172800000);
+        strictEqual('1'.d, 86400000);
+        strictEqual('2'.d, 172800000);
     });
 
     it('should convert weeks to milliseconds', () => {
-        strictEqual(tms('1w'), 604800000);
-        strictEqual(tms('2w'), 1209600000);
+        strictEqual('1'.w, 604800000);
+        strictEqual('2'.w, 1209600000);
     });
 
     it('should convert months to milliseconds', () => {
-        strictEqual(tms('1M'), 2629746000);
-        strictEqual(tms('2M'), 5259492000);
+        strictEqual('1'.M, 2629746000);
+        strictEqual('2'.M, 5259492000);
     });
 
     it('should convert years to milliseconds', () => {
-        strictEqual(tms('1y'), 31557600000);
-        strictEqual(tms('2y'), 63115200000);
+        strictEqual('1'.y, 31557600000);
+        strictEqual('2'.y, 63115200000);
     });
 
     it('should handle milliseconds input', () => {
-        strictEqual(tms('100ms'), 100);
-        strictEqual(tms('200ms'), 200);
-    });
-
-    it('should handle plain number input', () => {
-        strictEqual(tms(1000), 1000);
-        strictEqual(tms(2000), 2000);
-    });
-
-    it('should throw an error for invalid format', () => {
-        throws(() => tms('1x'), /Invalid time format/);
-        throws(() => tms('abc'), /Invalid time format/);
-    });
-
-    it('should throw a TypeError for non-string and non-number input', () => {
-        throws(() => tms({}), /Input must be a string or number/);
-        throws(() => tms([]), /Input must be a string or number/);
+        strictEqual('100m'.s, 100);
+        strictEqual('200m'.s, 200);
     });
 
     it("should compare performance between ms and tms: fn('1h') for '1_000_000' times", function () {
@@ -73,7 +59,7 @@ describe('tms function tests', () => {
 
         const startTms = Date.now();
         for (let i = 0; i < globalThis.iterations; i++) {
-            tms('1h');
+            '1'.h
         }
         const durationTms = Date.now() - startTms;
 
@@ -94,7 +80,7 @@ describe('tms function tests', () => {
 
         const startTms = Date.now();
         for (let i = 0; i < globalThis.iterations; i++) {
-            tms(`${i}h`);
+            `${i}`.h;
         }
         const durationTms = Date.now() - startTms;
 
