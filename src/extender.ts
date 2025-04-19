@@ -1,18 +1,14 @@
-import tms from '.'
+import tms, { type msUnits, msVal } from '.'
 
 type TmsExtend<T extends PropertyDescriptorMap> = { [K in keyof T]: number }
 declare global { interface String extends TmsExtend<typeof defTmsMap> { } }
 
-const defTmsMap = {
-    ms: { get(this: `${number}`) { return tms(`${this}ms`) } },
-    s: { get(this: `${number}`) { return tms(`${this}s`) } },
-    m: { get(this: `${number}`) { return tms(`${this}m`) } },
-    h: { get(this: `${number}`) { return tms(`${this}h`) } },
-    d: { get(this: `${number}`) { return tms(`${this}d`) } },
-    w: { get(this: `${number}`) { return tms(`${this}w`) } },
-    M: { get(this: `${number}`) { return tms(`${this}M`) } },
-    Y: { get(this: `${number}`) { return tms(`${this}y`) } },
-} as const satisfies PropertyDescriptorMap
+const defTmsMap = Object.fromEntries(
+    (Object.entries(msVal) as any).map(([key]: [msUnits]) => [
+        key,
+        { get(this: `${number}`) { return tms(`${this}${key}`) } }
+    ])
+) as Record<msUnits, PropertyDescriptor> satisfies PropertyDescriptorMap
 
 /**
  * Extend the String Prototype with custom props to change string to ms.

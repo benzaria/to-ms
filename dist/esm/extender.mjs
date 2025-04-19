@@ -1,14 +1,12 @@
-import tms from "./index.mjs";
-const defTmsMap = {
-  ms: { get() { return tms(`${this}ms`); } },
-  s: { get() { return tms(`${this}s`); } },
-  m: { get() { return tms(`${this}m`); } },
-  h: { get() { return tms(`${this}h`); } },
-  d: { get() { return tms(`${this}d`); } },
-  w: { get() { return tms(`${this}w`); } },
-  M: { get() { return tms(`${this}M`); } },
-  y: { get() { return tms(`${this}y`); } }
-};
+import tms, { msVal } from "./index.mjs";
+const defTmsMap = Object.fromEntries(
+  Object.entries(msVal).map(([key]) => [
+    key,
+    { get() {
+      return tms(`${this}${key}`);
+    } }
+  ])
+);
 function tmsExtender(tmsMap) {
   return Object.defineProperties(
     String.prototype,

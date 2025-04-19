@@ -1,7 +1,7 @@
-const msVal = { ms: 1, s: 1e3, m: 6e4, h: 36e5, d: 864e5, w: 6048e5, M: 2629746e3, y: 315576e5 };
+const s = 1e3, m = 6e4, h = 36e5, d = 864e5, w = 6048e5, M = 2629746e3, Y = 315576e5, msVal = { ms: 1, s: 1e3, m: 6e4, h: 36e5, d: 864e5, w: 6048e5, M: 2629746e3, Y: 315576e5 };
 function tms(input, catchError = !1) {
   if (typeof input == "string") {
-    const match = input.match(/^\s*([-+]?\s*\d*\.?\d+)\s*(ms|[smhdwMy]?)\s*$/);
+    const match = input.match(/^\s*([-+]?\s*\d*\.?\d+)\s*(ms|[smhdwMY]?)\s*$/);
     if (match)
       return +match[1] * (msVal[match[2]] ?? 1);
     const formatError = `Invalid time format ${input}, support: ${JSON.stringify(Object.keys(msVal))}`;

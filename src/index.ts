@@ -3,7 +3,7 @@
 /**
  * A type representing the input Units type for the `tms` function.
  */
-type msUnits = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'M' | 'y'
+type msUnits = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'M' | 'Y'
 
 /**
  * A type representing the input parameter type for the `tms` function.
@@ -19,12 +19,12 @@ const
     d = h * 24,
     w = d * 7,
     M = d * 30.436875,
-    y = d * 365.25
+    Y = d * 365.25
 
 /**
  * A record mapping time units to their corresponding millisecond values.
  */
-const msVal: Record<msUnits, number> = { ms: 1, s, m, h, d, w, M, y }
+const msVal: Record<msUnits, number> = { ms: 1, s, m, h, d, w, M, Y }
 
 /**
  * Converts a time string with units to milliseconds.
@@ -49,14 +49,14 @@ function tms(input: //? for IntelliSens
     | `${number}d`
     | `${number}w`
     | `${number}M`
-    | `${number}y`
+    | `${number}Y`
     | `${number}ms`
     | `${number}`
     | number,
     catchError: boolean = false
 ): number {
     if (typeof input === "string") {
-        const match = input.match(/^\s*([-+]?\s*\d*\.?\d+)\s*(ms|[smhdwMy]?)\s*$/)
+        const match = input.match(/^\s*([-+]?\s*\d*\.?\d+)\s*(ms|[smhdwMY]?)\s*$/)
         if (match)
             return +match[1] * (msVal[match[2] as msUnits] ?? 1)
 

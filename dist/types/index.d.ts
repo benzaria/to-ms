@@ -1,7 +1,7 @@
 /**
  * A type representing the input Units type for the `tms` function.
  */
-type msUnits = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'M' | 'y';
+type msUnits = 'ms' | 's' | 'm' | 'h' | 'd' | 'w' | 'M' | 'Y';
 /**
  * A type representing the input parameter type for the `tms` function.
  */
@@ -26,6 +26,6 @@ declare const msVal: Record<msUnits, number>;
  * @throws {Error} If the input string is in an invalid format.
  * @throws {TypeError} If the input is not a string or number.
  */
-declare function tms(input: `${number}s` | `${number}m` | `${number}h` | `${number}d` | `${number}w` | `${number}M` | `${number}y` | `${number}ms` | `${number}` | number, catchError?: boolean): number;
+declare function tms(input: `${number}s` | `${number}m` | `${number}h` | `${number}d` | `${number}w` | `${number}M` | `${number}Y` | `${number}ms` | `${number}` | number, catchError?: boolean): number;
 
 export { tms as default, type msInput, type msUnits, msVal, tms };
