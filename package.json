@@ -1,6 +1,6 @@
 {
     "name": "@benzn/to-ms",
-    "version": "2.0.5",
+    "version": "2.0.7",
     "description": "Converts a time string with units to milliseconds",
     "types": "./dist/types/index.d.ts",
     "module": "./dist/esm/index.mjs",
@@ -51,7 +51,7 @@
     },
     "homepage": "https://github.com/benzaria/to-ms#readme",
     "devDependencies": {
-        "@benzn/to-ms": "2.0.1-beta",
+        "@benzn/to-ms": "2.0.5",
         "@eslint/js": "^9.19.0",
         "@types/mocha": "^10.0.10",
         "@types/ms": "^2.1.0",

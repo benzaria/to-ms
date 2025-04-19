@@ -11,7 +11,7 @@ const defTmsMap = {
     d: { get(this: `${number}`) { return tms(`${this}d`) } },
     w: { get(this: `${number}`) { return tms(`${this}w`) } },
     M: { get(this: `${number}`) { return tms(`${this}M`) } },
-    y: { get(this: `${number}`) { return tms(`${this}y`) } },
+    Y: { get(this: `${number}`) { return tms(`${this}y`) } },
 } as const satisfies PropertyDescriptorMap
 
 /**
@@ -25,7 +25,7 @@ const defTmsMap = {
  *   - `d` for days
  *   - `w` for weeks
  *   - `M` for months
- *   - `y` for years
+ *   - `Y` for years
  *   - `ms`
  * @param {T} [tmsMap]
  * @return {TmsExtend<T>} {TmsExtend<T>} Type to extend the String interface,
